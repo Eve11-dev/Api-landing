@@ -5,7 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Landing } from './entities/landing.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Landing])],
+  imports: [
+    TypeOrmModule.forFeature([Landing],)
+  ],
   controllers: [LandingController],
   providers: [LandingService]
 })

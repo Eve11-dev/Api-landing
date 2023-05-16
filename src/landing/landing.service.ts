@@ -13,12 +13,17 @@ export class LandingService {
     private landingRepository: Repository<Landing>
   ) { }
 
-  create(createLandingDto: CreateLandingDto) {
-    return 'This action adds a new landing';
+  async create(createProductDto: CreateLandingDto) {
+    const model = this.landingRepository.create(createProductDto)
+      await this.landingRepository.save(model);
+
+      console.log(model);
+
+    return model;
   }
 
   findAll() {
-    return `This action returns all landing`;
+    return this.landingRepository.find();
   }
 
   findOne(id: number) {
