@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsOptional, IsString, MinLength } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, MinLength } from "class-validator";
 export class CreateLandingDto {
 
     @IsNotEmpty()
@@ -22,7 +22,7 @@ export class CreateLandingDto {
     category: string;
 
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @MinLength(5)
     price: number;
 }

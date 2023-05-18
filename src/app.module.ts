@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { LandingModule } from './landing/landing.module';
+import { LandingModule } from './landing/landing.module'; 
+import { Landing } from './landing/entities/landing.entity';
 
 @Module({
   imports: [
@@ -13,11 +14,11 @@ import { LandingModule } from './landing/landing.module';
       username: 'postgres',
       password: 'Ec915810',
       database: 'landing-ng',
-      entities: [],
+      entities: [Landing],
       synchronize: true,
       autoLoadEntities: true,
     }),
-    LandingModule,
+    LandingModule, 
     
   ],
   controllers: [AppController],

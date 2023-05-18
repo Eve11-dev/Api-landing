@@ -5,6 +5,28 @@ import { CreateLandingDto } from './dto/create-landing.dto';
 import { UpdateLandingDto } from './dto/update-landing.dto';
 import { Landing } from './entities/landing.entity';
 
+const db =[
+  {
+  id:1,
+  name:'Shirts',
+  descriptionProduct: 'Good product',
+  category: 'collection',
+  price: '2000',
+  url: 'http'//landing.url
+
+ },
+ {
+  id:2,
+  name:'Pants',
+  descriptionProduct: 'Good product',
+  category: 'collection',
+  price: '3000',
+  url: 'http'//landing.url
+  
+ }
+]
+
+
 @Injectable()
 export class LandingService {
 

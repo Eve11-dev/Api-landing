@@ -6,7 +6,7 @@ import { Landing } from './entities/landing.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Landing],)
+    TypeOrmModule.forFeature([Landing])
   ],
   controllers: [LandingController],
   providers: [LandingService]
