@@ -14,7 +14,7 @@ import { Landing } from './landing/entities/landing.entity';
       username: 'postgres',
       password: 'Ec915810',
       database: 'landing-ng',
-      entities: [Landing],
+      entities: [],
       synchronize: true,
       autoLoadEntities: true,
     }),
