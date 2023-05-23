@@ -18,11 +18,10 @@ export class CreateLandingDto {
 
     @IsNotEmpty()
     @IsString()
-    @MinLength(10)
+    @MinLength(5)
     category: string;
 
     @IsNotEmpty()
     @IsNumber()
-    @MinLength(5)
     price: number;
 }

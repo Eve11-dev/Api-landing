@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+//import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LandingModule } from './landing/landing.module'; 
-import { Landing } from './landing/entities/landing.entity';
+
 
 @Module({
   imports: [
@@ -21,7 +21,8 @@ import { Landing } from './landing/entities/landing.entity';
     LandingModule, 
     
   ],
-  controllers: [AppController],
+  //controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule { }
+

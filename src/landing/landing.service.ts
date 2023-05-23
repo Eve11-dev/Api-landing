@@ -1,62 +1,46 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { CreateLandingDto } from './dto/create-landing.dto';
-import { UpdateLandingDto } from './dto/update-landing.dto';
-import { Landing } from './entities/landing.entity';
-
-const db =[
-  {
-  id:1,
-  name:'Shirts',
-  descriptionProduct: 'Good product',
-  category: 'collection',
-  price: '2000',
-  url: 'http'//landing.url
-
- },
- {
-  id:2,
-  name:'Pants',
-  descriptionProduct: 'Good product',
-  category: 'collection',
-  price: '3000',
-  url: 'http'//landing.url
-  
- }
-]
-
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { CreateLandingDto } from "./dto/create-landing.dto";
+import { Landing} from "./entities/landing.entity";
+//import slugify from "slugify";
 
 @Injectable()
 export class LandingService {
-
   constructor(
-    @InjectRepository (Landing)
+    @InjectRepository(Landing)
     private landingRepository: Repository<Landing>
-  ) { }
+  ) {}
 
-  async create(createProductDto: CreateLandingDto) {
-    const model = this.landingRepository.create(createProductDto)
-      await this.landingRepository.save(model);
+  //Metodo para la creacion de una  nueva categoria
+  async create(catDto: CreateLandingDto) {
+    const landing = this.landingRepository.create(catDto);
+    await this.landingRepository.save(landing);
 
-      console.log(model);
-
-    return model;
+    return landing;
   }
 
   findAll() {
     return this.landingRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} landing`;
+  findOne(id: string) {
+    return this.landingRepository.findOneBy({ id:1 });
   }
 
-  update(id: number, updateLandingDto: UpdateLandingDto) {
-    return `This action updates a #${id} landing`;
+  async remove(id: string) {
+    const landing = await this.findOne(id);
+    await this.landingRepository.remove(landing);
+    return `landing page removed`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} landing`;
+  async update(id: string, changeDto: CreateLandingDto) {
+    const findLanding = await this.findOne(id);
+    const updateLanding = await this.landingRepository.merge(
+      findLanding,
+      changeDto
+    );
+
+    return this.landingRepository.save(updateLanding);
   }
 }
