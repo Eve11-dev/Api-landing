@@ -18,7 +18,6 @@ export class CreateLandingDto {
 
     @IsNotEmpty()
     @IsString()
-    @MinLength(5)
     category: string;
 
     @IsNotEmpty()

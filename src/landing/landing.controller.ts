@@ -17,7 +17,7 @@ export class LandingController {
   }
 
   @Get(":id")
-  findOne(@Param("id", ParseUUIDPipe) id: string) {
+  findOne(@Param("id") id: string) {
     return this.landingService.findOne(id);
   }
 
