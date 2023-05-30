@@ -7,22 +7,27 @@ export class User {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ length: 20 })
-    username: string;
-
-    @Column()
-    lastname: string;
-
-    @Column()
-    password: string;
-
-
     @Column()
     address: string;
 
+    @Column({type: 'boolean', default: false})
+    receiveEmails: boolean;
+
+    @Column({type: "text", nullable: true})
+    fullName: string;
+
+    @Column({ type: "text", nullable: true })
+    username: string;
+
+    @Column({ type: "text", nullable: true })
+    password: string;
+
+    @Column({type: "text", nullable: true })
+    lastname: string;
+
     @OneToOne(() => Landing)
     @JoinColumn()
-    Landing: Landing
+     Landing: Landing
     
 
 }

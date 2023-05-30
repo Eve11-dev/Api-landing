@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LandingModule } from './landing/landing.module'; 
 import { UserModule } from './user/user.module';
+import { User } from './user/entities/user.entity';
+import { Landing } from './landing/entities/landing.entity';
 
 
 
@@ -16,7 +18,7 @@ import { UserModule } from './user/user.module';
       username: 'postgres',
       password: 'Ec915810',
       database: 'landing-ng',
-      entities: [],
+      entities: [User, Landing],
       synchronize: true,
       autoLoadEntities: true,
     }),
