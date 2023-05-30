@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LandingModule } from './landing/landing.module'; 
+import { UserModule } from './user/user.module';
+
 
 
 @Module({
@@ -18,7 +20,8 @@ import { LandingModule } from './landing/landing.module';
       synchronize: true,
       autoLoadEntities: true,
     }),
-    LandingModule, 
+    LandingModule,
+    UserModule, 
     
   ],
   //controllers: [AppController],
