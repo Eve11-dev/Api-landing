@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne,JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Landing } from '../../landing/entities/landing.entity';
 
 @Entity()
 export class User {
@@ -18,6 +19,10 @@ export class User {
 
     @Column()
     address: string;
+
+    @OneToOne(() => Landing)
+    @JoinColumn()
+    Landing: Landing
     
 
 }

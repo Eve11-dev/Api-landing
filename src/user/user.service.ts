@@ -4,17 +4,26 @@ import { Repository } from "typeorm";
 import { CreateUserDto } from './dto/create-user.dto';
 import { User} from "./entities/user.entity";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { Landing } from "src/landing/entities/landing.entity";
 
 @Injectable()
 export class UserService {
+
+
   constructor(
     @InjectRepository(User)
-    private readonly userRepository: Repository<User>
+    private readonly userRepository: Repository<User>,
+    @InjectRepository(Landing)
+    private landingRepository: Repository<Landing>
   ) {}
 
   async create(createUserDto: CreateUserDto) {
     const user = await this.userRepository.create(createUserDto);
     await this.userRepository.save(user);
+
+  
+    user.username = createUserDto.username
+    user.password = createUserDto.password;    
 
     return user;
   }
