@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
-//import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LandingModule } from './landing/landing.module'; 
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
 import { Landing } from './landing/entities/landing.entity';
+import { ClientModule } from './client/client.module';
+import { StoreModule } from './store/store.module';
+import { CategoryModule } from './category/category.module';
+import { ProductModule } from './product/product.module';
 
 
 
@@ -23,7 +26,11 @@ import { Landing } from './landing/entities/landing.entity';
       autoLoadEntities: true,
     }),
     LandingModule,
-    UserModule, 
+    UserModule,
+    ClientModule,
+    StoreModule,
+    CategoryModule,
+    ProductModule, 
     
   ],
   //controllers: [AppController],
