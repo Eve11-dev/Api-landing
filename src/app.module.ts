@@ -9,6 +9,8 @@ import { ClientModule } from './client/client.module';
 import { StoreModule } from './store/store.module';
 import { CategoryModule } from './category/category.module';
 import { ProductModule } from './product/product.module';
+import { Client } from './client/entities/client.entity';
+import { Store } from './store/entities/store.entity';
 
 
 
@@ -21,7 +23,7 @@ import { ProductModule } from './product/product.module';
       username: 'postgres',
       password: 'Ec915810',
       database: 'landing-ng',
-      entities: [User, Landing],
+      entities: [User, Landing, Client, Store,],
       synchronize: true,
       autoLoadEntities: true,
     }),

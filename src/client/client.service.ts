@@ -4,19 +4,23 @@ import { Repository } from "typeorm";
 import { CreateClientDto } from './dto/create-client.dto';
 import { Client} from "./entities/client.entity";
 import { UpdateClientDto } from "./dto/update-client.dto";
+import { Store } from "src/store/entities/store.entity";
 
 
 @Injectable()
 export class ClientService {
+
   constructor(
     @InjectRepository(Client)
-    private readonly clientRepository: Repository<Client>
+    private readonly clientRepository: Repository<Client>,
+    @InjectRepository(Store)
+    private StoreRepository: Repository<Store>
   ) {}
 
-  
   async create(createClientDto: CreateClientDto) {
-    const client = this.clientRepository.create(createClientDto);
+    const client = await this.clientRepository.create(createClientDto);
     await this.clientRepository.save(client);
+
 
     return client;
   }
