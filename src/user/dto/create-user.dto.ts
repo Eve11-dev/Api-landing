@@ -1,26 +1,25 @@
 import { IsBoolean, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  address: string;
 
-    @IsString()
-    @IsNotEmpty()
-    address: string;
+  @IsBoolean()
+  @IsNotEmpty()
+  receiveEmails: boolean;
 
-    @IsBoolean()
-    @IsNotEmpty()
-    receiveEmails: boolean;
+  @IsString()
+  fullName: string;
 
-    @IsString()
-    fullName: string;
+  @IsString()
+  username: string;
 
-    @IsString()
-    username: string;
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password: string;
-
-    @IsString()
-    @IsNotEmpty()
-    lastname:string;
+  @IsString()
+  @IsNotEmpty()
+  lastname: string;
 }

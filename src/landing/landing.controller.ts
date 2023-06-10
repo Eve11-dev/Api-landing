@@ -1,4 +1,13 @@
-import {Controller,Get,Post,Body,Patch,Param,Delete,ParseUUIDPipe,} from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseUUIDPipe,
+} from "@nestjs/common";
 import { LandingService } from "./landing.service";
 import { CreateLandingDto } from "./dto/create-landing.dto";
 

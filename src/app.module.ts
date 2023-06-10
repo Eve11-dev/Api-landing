@@ -1,29 +1,27 @@
-import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { LandingModule } from './landing/landing.module'; 
-import { UserModule } from './user/user.module';
-import { User } from './user/entities/user.entity';
-import { Landing } from './landing/entities/landing.entity';
-import { ClientModule } from './client/client.module';
-import { StoreModule } from './store/store.module';
-import { CategoryModule } from './category/category.module';
-import { ProductModule } from './product/product.module';
-import { Client } from './client/entities/client.entity';
-import { Store } from './store/entities/store.entity';
-
-
+import { Module } from "@nestjs/common";
+import { AppService } from "./app.service";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { LandingModule } from "./landing/landing.module";
+import { UserModule } from "./user/user.module";
+import { User } from "./user/entities/user.entity";
+import { Landing } from "./landing/entities/landing.entity";
+import { ClientModule } from "./client/client.module";
+import { StoreModule } from "./store/store.module";
+import { CategoryModule } from "./category/category.module";
+import { ProductModule } from "./product/product.module";
+import { Client } from "./client/entities/client.entity";
+import { Store } from "./store/entities/store.entity";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
+      type: "postgres",
+      host: "localhost",
       port: 5432,
-      username: 'postgres',
-      password: 'Ec915810',
-      database: 'landing-ng',
-      entities: [User, Landing, Client, Store,],
+      username: "postgres",
+      password: "root",
+      database: "landing-ng",
+      entities: [User, Landing, Client, Store],
       synchronize: true,
       autoLoadEntities: true,
     }),
@@ -32,11 +30,9 @@ import { Store } from './store/entities/store.entity';
     ClientModule,
     StoreModule,
     CategoryModule,
-    ProductModule, 
-    
+    ProductModule,
   ],
   //controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
-
+export class AppModule {}

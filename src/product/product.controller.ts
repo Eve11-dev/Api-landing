@@ -1,4 +1,13 @@
-import {Controller,Get,Post,Body,Patch,Param,Delete,ParseUUIDPipe,} from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseUUIDPipe,
+} from "@nestjs/common";
 import { ProductService } from "./product.service";
 import { CreateProductDto } from "./dto/create-product.dto";
 
@@ -35,4 +44,3 @@ export class ProductController {
     return this.ProductService.update(id, changeDto);
   }
 }
-

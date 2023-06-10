@@ -1,27 +1,22 @@
 import { Column, PrimaryGeneratedColumn, Entity } from "typeorm";
 
-
 @Entity({ name: "landing" })
-
 export class Landing {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
-    @Column()
-    name: string;
+  @Column({ type: "text" })
+  name: string;
 
-    @Column()
-    url: string;
+  @Column({ type: "text" })
+  url: string;
 
-    @Column()
-    descriptionProduct: string;
+  @Column({ type: "text" })
+  descriptionProduct: string;
 
-    @Column()
-    category: string;
+  @Column({ type: "text" })
+  category: string;
 
-    @Column()
-    price: number;
-
-
-
+  @Column({ type: "numeric" })
+  price: number;
 }

@@ -1,8 +1,17 @@
-import {Controller,Get,Post,Body,Patch,Param,Delete,ParseUUIDPipe,} from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseUUIDPipe,
+} from "@nestjs/common";
 import { StoreService } from "./store.service";
 import { CreateStoreDto } from "./dto/create-store.dto";
 
-@Controller("store")
+@Controller("stores")
 export class StoreController {
   constructor(private readonly StoreService: StoreService) {}
 

@@ -1,10 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { CreateStoreDto } from './dto/create-store.dto';
-import { Store} from "./entities/store.entity";
+import { CreateStoreDto } from "./dto/create-store.dto";
+import { Store } from "./entities/store.entity";
 import { UpdateStoreDto } from "./dto/update-store.dto";
-
 
 @Injectable()
 export class StoreService {
@@ -13,7 +12,6 @@ export class StoreService {
     private readonly storeRepository: Repository<Store>
   ) {}
 
-  
   async create(createStoreDto: CreateStoreDto) {
     const store = await this.storeRepository.create(createStoreDto);
     await this.storeRepository.save(store);
@@ -26,8 +24,8 @@ export class StoreService {
   }
   async findOne(id: string) {
     return await this.storeRepository.findOne({
-      where: { id }
-    })
+      where: { id },
+    });
   }
 
   async update(id: string, updateStoreDto: UpdateStoreDto) {
@@ -39,10 +37,8 @@ export class StoreService {
 
     return this.storeRepository.save(updateStore);
   }
-  
+
   async remove(id: string) {
-    await this.storeRepository.delete(id)
-
+    await this.storeRepository.delete(id);
   }
-
-  }
+}
