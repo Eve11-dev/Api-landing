@@ -5,18 +5,18 @@ export class Landing {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column({ type: "text" })
+  @Column()
   name: string;
 
-  @Column({ type: "text" })
+  @Column()
   url: string;
 
-  @Column({ type: "text" })
+  @Column()
   descriptionProduct: string;
 
-  @Column({ type: "text" })
+  @Column()
   category: string;
 
-  @Column({ type: "numeric" })
+  @Column()
   price: number;
 }

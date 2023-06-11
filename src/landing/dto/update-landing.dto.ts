@@ -5,7 +5,6 @@ import { CreateLandingDto } from "./create-landing.dto";
 export class UpdateLandingDto extends PartialType(CreateLandingDto) {
   @IsNotEmpty()
   @IsString()
-  @MinLength(25)
   name: string;
 
   @IsNotEmpty()

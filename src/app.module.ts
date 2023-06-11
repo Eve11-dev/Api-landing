@@ -19,7 +19,7 @@ import { Store } from "./store/entities/store.entity";
       host: "localhost",
       port: 5432,
       username: "postgres",
-      password: "root",
+      password: "Ec915810",
       database: "landing-ng",
       entities: [User, Landing, Client, Store],
       synchronize: true,
